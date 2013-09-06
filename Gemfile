@@ -1,34 +1,52 @@
 source 'https://rubygems.org'
 
-# Distribute your app as a gem
-# gemspec
-
-# Server requirements
-# gem 'thin' # or mongrel
-# gem 'trinidad', :platform => 'jruby'
-
-# Optional JSON codec (faster performance)
-# gem 'oj'
-
-# Project requirements
-gem 'rake'
-
-# Component requirements
-gem 'compass'
-gem 'haml'
-gem 'mongoid', '~>3.0.0'
-
-# Test requirements
-gem 'rspec', :group => 'test'
-gem 'rack-test', :require => 'rack/test', :group => 'test'
-
-# Padrino Stable Gem
 gem 'padrino', '0.11.3'
 
-# Or Padrino Edge
-# gem 'padrino', :github => 'padrino/padrino-framework'
+gem 'puma'
 
-# Or Individual Gems
-# %w(core gen helpers cache mailer admin).each do |g|
-#   gem 'padrino-' + g, '0.11.3'
-# end
+gem 'rake'
+
+gem 'mongoid', '~> 3.0.0'
+
+gem 'canable'
+
+gem 'mutations'
+
+gem 'bcrypt-ruby', require: nil
+
+gem 'redcarpet'
+
+gem 'haml'
+gem 'rabl'
+
+gem 'padrino-sprockets', git: 'https://github.com/nightsailer/padrino-sprockets.git'
+
+gem 'sprockets-sass'
+gem 'compass'
+gem 'susy'
+
+gem 'coffee-script'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
+  gem 'log_buddy'
+
+  gem 'foreman'
+  gem 'pry'
+end
+
+group :test do
+  gem 'rack-test', require: 'rack/test'
+  gem 'rspec'
+
+  gem 'shoulda-matchers'
+  gem 'factory_girl'
+
+  gem 'database_cleaner'
+
+  gem 'fuubar'
+
+  gem 'rubocop'
+end
