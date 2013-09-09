@@ -1,16 +1,16 @@
-class UserDestroy < Mutations::Command
+class CourseDestroy < Mutations::Command
   required do
     model :current_user, class: User
-    hash :user do
+    hash :course do
       string :id
     end
   end
 
   def execute
-    u = User.find(user['id'])
+    c = Course.find(course['id'])
 
-    if current_user.can_destroy?(u)
-      u.destroy
+    if current_user.can_destroy?(c)
+      c.destroy
 
       return nil
     else

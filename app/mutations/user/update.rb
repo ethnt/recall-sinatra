@@ -8,10 +8,10 @@ class UserUpdate < Mutations::Command
   end
 
   def execute
-    u = User.find(self.user['id'])
+    u = User.find(user['id'])
 
     if current_user.can_update?(u)
-      u.update_attributes(self.user)
+      u.update_attributes(user)
       u.save
 
       return u
