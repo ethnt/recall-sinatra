@@ -3,7 +3,10 @@ require 'bcrypt'
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
+
   include BCrypt
+  include Canable::Ables
+  include Canable::Cans
 
   attr_accessor :password
 
@@ -19,6 +22,18 @@ class User
   def self.authenticate(e, p)
     u = User.where(email: e).first
     u && Password.new(u.crypted) == p ? u : nil
+  end
+
+  def viewable_by?(u)
+    self == u
+  end
+
+  def updatable_by?(u)
+    self.viewable_by?(u)
+  end
+
+  def destroyable_by?(u)
+    self.viewable_by?(u)
   end
 
   private

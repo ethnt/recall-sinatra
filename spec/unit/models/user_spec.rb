@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { create :user }
+  let(:user)  { create :user }
+  let(:other) { create :user }
 
   it { should validate_presence_of :email }
 
@@ -19,5 +20,20 @@ describe User do
   describe '#encrypt_password!' do
     it { user.hash.should_not be_nil }
     it { user.password.should == 'foobar' }
+  end
+
+  describe '#viewable_by?' do
+    it { user.viewable_by?(user).should be_true }
+    it { user.viewable_by?(other).should be_false }
+  end
+
+  describe '#updatable_by?' do
+    it { user.updatable_by?(user).should be_true }
+    it { user.updatable_by?(other).should be_false }
+  end
+
+  describe '#destroyable_by?' do
+    it { user.destroyable_by?(user).should be_true }
+    it { user.destroyable_by?(other).should be_false }
   end
 end
