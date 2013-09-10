@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 gem 'padrino', '0.11.3'
 
-gem 'puma'
-
 gem 'rake'
 
 gem 'mongoid', '~> 3.0.0'
@@ -33,6 +31,7 @@ group :development do
 
   gem 'log_buddy'
 
+  gem 'puma'
   gem 'foreman'
   gem 'pry'
 end

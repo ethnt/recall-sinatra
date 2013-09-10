@@ -1,0 +1,22 @@
+a.btn {
+	@include border-radius(1px);
+
+	background: $grey;
+	color: $base;
+	display: inline-block;
+	font-size: 0.85em;
+	font-weight: 700;
+	padding: 0.15em 0.5em;
+
+	&:hover {
+		background: $dark-grey;
+	}
+}
+
+a.btn.blue {
+	background: $blue;
+
+	&:hover {
+		background: $light-blue;
+	}
+}

@@ -1,0 +1,12 @@
+%header.section
+  %h2 Login
+.section
+  %form{:action => "", :method => "post"}
+    .element
+      %label{:for => "email"} Email
+      .control
+        = email_field_tag :email
+    .element
+      %label{:for => "password"} Password
+      .control
+        = password_field_tag :password

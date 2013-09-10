@@ -1,0 +1,31 @@
+/*
+	Recall
+		file: css/modules/_universal.scss
+*/
+
+body {
+	background: $base;
+	color: $text;
+	font: 300 100%/1.75em $sans-serif;
+}
+
+a {
+	color: $text;
+	text-decoration: none;
+
+	&:hover {
+		color: lighten($text, 10%);
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+}
+
+h1 {
+	font-size: 1.25em;
+}
+
+h2 {
+	font-size: 1.5em;
+}

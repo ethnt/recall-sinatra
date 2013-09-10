@@ -1,0 +1,68 @@
+/*
+	Recall
+		file: css/index.css
+*/
+
+@import "lib/base";
+
+$total-columns: 12;
+$column-width: 2em;
+$gutter-width: 1em;
+$grid-padding: $gutter-width;
+
+
+/*
+	= Appendix
+		I. Media Queries
+		II.
+*/
+
+/*
+	I. Media Queries
+*/
+
+@media handheld, only screen and (max-width: 767px) { /* Handheld devices. */
+
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { /* iPhone 4 */
+
+}
+
+/*
+	II. Header
+*/
+
+#contain > header.index {
+	margin-bottom: 1.75em;
+	margin-top: 3 * 1.75em;
+
+	.inner {
+		@include container;
+	}
+}
+
+
+/*
+	III. Main
+*/
+
+#main {
+	@include container;
+
+	p {
+		margin-top: 1.75em;
+	}
+
+	.section {
+		margin-top: 1.75em;
+	}
+
+	nav {
+		padding-top: 1.75em;
+
+		li {
+			display: inline-block;
+		}
+	}
+}
