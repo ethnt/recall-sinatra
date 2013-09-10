@@ -6,5 +6,5 @@
     %p= password_field_tag :password, :placeholder => "Password"
     %footer
       %p
-        %button{:type => "submit"} Join
+        %a.btn{:href => url(:users, :new)} Join
         %button.blue{:type => "submit"} Login

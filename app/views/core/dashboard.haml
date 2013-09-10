@@ -1,13 +1,34 @@
-.section
-  - form_tag url(:assignments, :create), :class => "large", :method => "post" do
-    %p= text_field_tag :"assignment[text]", :class => "large", :placeholder => "What do you have to do?"
-    %footer
-      %p
-        = select_tag :"assignment[course]", :options => @course_options
-        %button.blue{:type => "submit"} Save
+- if @course_options.empty?
+  .section
+    %header
+      %h2 Welcome to Recall!
+    %p Begin by creating a new course that you're enrolled in.
+  .section
+    - form_tag url(:courses, :create), :method => "post" do
+      = hidden_field_tag :redirect, :value => "/"
+      .group
+        %label{:for => "course[name]"} Name
+        .control
+          = text_field_tag :"course[name]", :placeholder => "A human-readable name"
+      .group
+        %label{:for => "course[code]"} Code
+        .control
+          = text_field_tag :"course[code]", :placeholder => "The code for the course (e.g., ENG101)"
+      .group
+        .control.labelless
+          %button{:type => "submit"} Save
+- else
+  .section
+    - form_tag url(:assignments, :create), :class => "large", :method => "post" do
+      %p= text_field_tag :"assignment[text]", :class => "large", :placeholder => "What do you have to do?"
+      %footer
+        %p
+          = select_tag :"assignment[course]", :options => @course_options
+          %button.blue{:type => "submit"} Save
+
 .section
   %ul
     - @assignments.each do |a|
-      %li= "#{a.text} (#{a.course.name})
+      %li= "#{a.text} (#{a.course.name})"
 
 

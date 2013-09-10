@@ -78,5 +78,13 @@
 
 	.section {
 		@include container;
+
+		header {
+			margin-bottom: 0.875em;
+		}
+
+		& + .section {
+			margin-top: 1.75em;
+		}
 	}
 }

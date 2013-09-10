@@ -1,14 +1,14 @@
 form {
 	input {
 		border: none;
-		border-bottom: 1px solid $grey;
-		font: 1em/1.75em $sans-serif;
+		border: 1px solid $grey;
+		font: 0.9em/1.75em $sans-serif;
 		outline: none;
-		padding: 0.5em 0;
+		padding: 0.5em;
 		width: 40%;
 
 		&:focus {
-			border-bottom: 1px solid $dark-grey;
+			border: 1px solid $darker-grey;
 		}
 	}
 
@@ -18,13 +18,42 @@ form {
 
 	&.large {
 		.large {
-			width: 100%;
+			width: 98%;
 		}
 
 		footer {
 			p {
 				float: right;
 			}
+		}
+	}
+
+	.group {
+		// @include container;
+
+		// display: table-row;
+
+		margin-top: 0.5em;
+
+		label {
+			// @include span-columns(2, 12);
+
+			// display: table-cell;
+			float: left;
+			width: 10%;
+			text-align: right;
+			vertical-align: middle;
+			padding-top: 0.5em;
+			margin-right: 1em;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.control.labelless {
+			// @include span-columns(10 omega, 12);
+			margin-left: 10%;
+			padding-left: 0.8em;
 		}
 	}
 }
