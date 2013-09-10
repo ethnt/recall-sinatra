@@ -1,0 +1,11 @@
+- unless flash.empty?
+  .section
+    - if flash[:notice]
+      .flash.notice
+        %p= flash[:notice]
+    - elsif flash[:warning]
+      .flash.warning
+        %p= flash[:warning]
+    - elsif flash[:error]
+      .flast.error
+        %p= flash[:error]

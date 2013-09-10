@@ -1,5 +1,8 @@
 Recall::Web.controllers :courses do
   get :index do
+    @courses = Course.where(user_id: current_user.id).asc(:name)
+
+    render 'courses/index'
   end
 
   post :create do

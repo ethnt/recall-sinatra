@@ -1,0 +1,20 @@
+%header.section
+  %h2 Courses
+.section
+  %ul
+    - @courses.each do |c|
+      %li= c.name
+.section
+  %h3 Enroll
+  - form_tag url(:courses, :create), :method => "post" do
+    .group
+      %label{:for => "course[name]"} Name
+      .control
+        = text_field_tag :"course[name]", :placeholder => "A human-readable name"
+    .group
+      %label{:for => "course[code]"} Code
+      .control
+        = text_field_tag :"course[code]", :placeholder => "The code for the course (e.g., ENG101)"
+    .group
+      .control.labelless
+        %button{:type => "submit"} Save

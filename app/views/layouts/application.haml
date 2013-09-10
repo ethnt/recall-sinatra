@@ -31,10 +31,10 @@
             %nav.left
               %ul
                 %li= link_to "Assignments", url(:assignments, :index)
-                %li= link_to "Courses", ""
+                %li= link_to "Courses", url(:courses, :index)
             %nav.right
               %ul
-                %li= link_to "Logout", "", :class => "btn"
+                %li= link_to "Logout", url(:sessions, :destroy), :class => "btn"
 
       #main{:role => "main"}
         = yield

@@ -1,5 +1,6 @@
 class Assignment
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :text,     type: String
   field :complete, type: Boolean, default: false

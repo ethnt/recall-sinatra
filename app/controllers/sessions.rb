@@ -14,4 +14,10 @@ Recall::Web.controllers :sessions do
       redirect url(:sessions, :new)
     end
   end
+
+  get :destroy, map: '/logout' do
+    session[:recall] = nil
+
+    redirect url(:index)
+  end
 end
