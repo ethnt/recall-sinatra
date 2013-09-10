@@ -36,6 +36,7 @@ $grid-padding: $gutter-width;
 #contain > header.index {
 	margin-bottom: 1.75em;
 	margin-top: 3 * 1.75em;
+	text-align: center;
 
 	.inner {
 		@include container;
@@ -48,18 +49,34 @@ $grid-padding: $gutter-width;
 */
 
 #main {
-	@include container;
+	text-align: center;
 
-	p {
-		margin-top: 1.75em;
+	h2 {
+		font-weight: 100;
 	}
 
 	.section {
-		margin-top: 1.75em;
+		@include container;
+
+		padding-bottom: 2 * 1.75em;
+
+
+		figure {
+			@include span-columns(4, 12);
+
+			&:last-child {
+				@include omega;
+			}
+
+			i {
+				font-size: 2em;
+			}
+		}
 	}
 
 	nav {
-		padding-top: 1.75em;
+		margin: 0 auto;
+		// padding-top: 1.75em;
 
 		li {
 			display: inline-block;
