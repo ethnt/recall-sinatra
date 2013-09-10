@@ -10,6 +10,7 @@ class AssignmentCreate < Mutations::Command
   def execute
     if current_user.can_update?(course)
       a = Assignment.new(assignment)
+      a.user = current_user
       a.course = course
       a.save
 

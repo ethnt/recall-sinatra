@@ -18,6 +18,7 @@ class User
   before_save :encrypt_password!
 
   has_many :courses
+  has_many :assignments
 
   def self.authenticate(e, p)
     u = User.where(email: e).first

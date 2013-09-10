@@ -6,6 +6,7 @@ class Assignment
 
   validates_presence_of :text
 
+  belongs_to :user
   belongs_to :course
 
   def viewable_by?(u)
