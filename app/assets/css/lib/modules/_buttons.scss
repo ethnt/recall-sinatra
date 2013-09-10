@@ -1,22 +1,24 @@
-a.btn {
+a.btn, button, input[type="submit"] {
 	@include border-radius(1px);
 
 	background: $grey;
+	border: none;
 	color: $base;
+	cursor: pointer;
 	display: inline-block;
-	font-size: 0.85em;
-	font-weight: 700;
-	padding: 0.15em 0.75em;
+	font: 700 0.95em $sans-serif;
+	outline: 0;
+	padding: 0.5em 0.75em;
 
 	&:hover {
 		background: $dark-grey;
 	}
-}
 
-a.btn.blue {
-	background: $blue;
+	&.blue {
+		background: $blue;
 
-	&:hover {
-		background: $light-blue;
+		&:hover {
+			background: $light-blue;
+		}
 	}
 }

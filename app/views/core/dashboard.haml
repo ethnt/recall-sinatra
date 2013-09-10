@@ -1,0 +1,13 @@
+.section
+  - form_tag url(:assignments, :create), :class => "large", :method => "post" do
+    %p= text_field_tag :"assignment[text]", :class => "large", :placeholder => "What do you have to do?"
+    %footer
+      %p
+        = select_tag :"assignment[course]", :options => @course_options
+        %button.blue{:type => "submit"} Save
+.section
+  %ul
+    - @assignments.each do |a|
+      %li= "#{a.text} (#{a.course.name})
+
+

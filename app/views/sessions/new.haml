@@ -1,0 +1,10 @@
+%header.section
+  %h2 Login
+.section
+  %form{:action => url(:sessions, :create), :method => "post"}
+    %p= email_field_tag :email, :placeholder => "Email"
+    %p= password_field_tag :password, :placeholder => "Password"
+    %footer
+      %p
+        %button{:type => "submit"} Join
+        %button.blue{:type => "submit"} Login

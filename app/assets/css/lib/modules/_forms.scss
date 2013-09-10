@@ -4,24 +4,27 @@ form {
 		border-bottom: 1px solid $grey;
 		font: 1em/1.75em $sans-serif;
 		outline: none;
-		padding: 0.5em;
+		padding: 0.5em 0;
+		width: 40%;
+
+		&:focus {
+			border-bottom: 1px solid $dark-grey;
+		}
 	}
 
-	.element {
-		@include container;
+	footer {
+		margin-top: 1em;
+	}
 
-		label {
-			@include span-columns(2, 12);
-
-			text-align: right;
-			margin-right: 0.5em;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
+	&.large {
+		.large {
+			width: 100%;
 		}
 
-		.controls {
-			@include span-columns(10 omega, 12);
+		footer {
+			p {
+				float: right;
+			}
 		}
 	}
 }

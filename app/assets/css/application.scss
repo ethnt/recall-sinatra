@@ -39,15 +39,20 @@
 			@include span-columns(2, 12);
 		}
 
-		nav.left {
-			@include span-columns(6, 12);
-		}
+		nav {
+			font-size: 0.9em;
+			margin-top: 0.15em;
 
-		nav.right {
-			@include span-columns(4 omega, 12);
+			&.left {
+				@include span-columns(6, 12);
+			}
 
-			ul {
-				float: right;
+			&.right {
+				@include span-columns(4 omega, 12);
+
+				ul {
+					float: right;
+				}
 			}
 		}
 	}

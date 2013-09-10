@@ -1,5 +1,12 @@
 Recall::Web.controllers do
   get :index do
-    render 'core/index', layout: false
+    if current_user
+      @course_options = Course.as_options(current_user)
+      @assignments = Assignment.where(user_id: current_user.id)
+
+      render 'core/dashboard'
+    else
+      render 'core/index', layout: false
+    end
   end
 end

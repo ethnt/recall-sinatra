@@ -1,12 +1,9 @@
 %header.section
-  %h2 Login
+  %h2 Join
 .section
-  %form{:action => "", :method => "post"}
-    .element
-      %label{:for => "email"} Email
-      .control
-        = email_field_tag :email
-    .element
-      %label{:for => "password"} Password
-      .control
-        = password_field_tag :password
+  %form{:action => url(:users, :create), :method => "post"}
+    %p= email_field_tag :'user[email]', :placeholder => "Email"
+    %p= password_field_tag :'user[password]', :placeholder => "Password"
+    %footer
+      %p
+        %button.blue{:type => "submit"} Join

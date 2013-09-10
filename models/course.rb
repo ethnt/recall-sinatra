@@ -11,6 +11,17 @@ class Course
 
   has_many :assignments
 
+  def self.as_options(u)
+    courses = where(user_id: u.id).all
+
+    arr = []
+    courses.each do |c|
+      arr << [c.name, c.id]
+    end
+
+    return arr
+  end
+
   def viewable_by?(u)
     self.user == u
   end
