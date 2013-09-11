@@ -1,10 +1,8 @@
-class AssignmentUpdate < Mutations::Command
+class AssignmentFlux < Mutations::Command
   required do
     model :current_user, class: User
     hash :assignment do
       string :id
-      string :text
-      boolean :complete
     end
   end
 
@@ -12,12 +10,12 @@ class AssignmentUpdate < Mutations::Command
     a = Assignment.find(assignment['id'])
 
     if current_user.can_update?(a)
-      a.update_attributes(assignment)
+      a.complete = !a.complete
       a.save
 
       return a
     else
-      add_error(:current_user, 'the current user is not authorized')
+      add_error(:current_user, :unauthorized, 'the current user is not authorized')
     end
   end
 end
