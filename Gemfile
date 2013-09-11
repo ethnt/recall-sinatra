@@ -4,6 +4,8 @@ gem 'padrino', '0.11.3'
 
 gem 'rake'
 
+gem 'puma'
+
 gem 'mongoid', '~> 3.0.0'
 
 gem 'canable'
@@ -31,7 +33,6 @@ group :development do
 
   gem 'log_buddy'
 
-  gem 'puma'
   gem 'foreman'
   gem 'pry'
 end
