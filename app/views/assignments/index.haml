@@ -1,11 +1,9 @@
 %header.section
   %h2 Assignments
 .section
-  %ul
-    - @pending.each do |a|
-      %li= a.text
+  - @pending.each do |a|
+    = partial 'partials/assignment', :locals => { :assignment => a }
 .section
   %h3 Completed
-  %ul
-    - @completed.each do |a|
-      %li= a.text
+  - @completed.each do |a|
+    = partial 'partials/assignment', :locals => { :assignment => a }

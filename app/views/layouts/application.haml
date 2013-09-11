@@ -40,6 +40,8 @@
         = yield
 
       %footer
+        .inner
+          %p= s("<a href='/'>Recall</a> fecit #{Time.now.year}.")
 
     %script{:src => "/assets/application.js"}
     :javascript

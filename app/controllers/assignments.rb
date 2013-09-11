@@ -20,4 +20,19 @@ Recall::Web.controllers :assignments do
       redirect url(:index)
     end
   end
+
+  patch :flux do
+    a = AssignmentFlux.run({
+      current_user: current_user,
+      assignment: params[:assignment]
+    })
+
+    if a.success?
+      redirect url(:index)
+    else
+      flash[:error] = a.errors
+
+      redirect url(:index)
+    end
+  end
 end

@@ -1,0 +1,7 @@
+%article
+  %p= assignment.text
+  %p= assignment.course.name
+  - form_tag url(:assignments, :flux), :method => "patch" do
+    = hidden_field_tag :'assignment[id]', :value => assignment.id
+    %button{:type => "submit"}
+      Complete

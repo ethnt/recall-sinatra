@@ -28,8 +28,5 @@
           %button.blue{:type => "submit"} Save
 
 .section
-  %ul
-    - @assignments.each do |a|
-      %li= "#{a.text} (#{a.course.name})"
-
-
+  - @assignments.each do |a|
+    = partial 'partials/assignment', :locals => { :assignment => a }
