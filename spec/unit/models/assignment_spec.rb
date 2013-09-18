@@ -10,6 +10,10 @@ describe Assignment do
 
   it { assignment.should be_valid }
 
+  describe '#due_in_words' do
+    it { assignment.due_in_words.should eql('tomorrow') }
+  end
+
   describe '#viewable_by?' do
     it { assignment.viewable_by?(user).should be_true }
     it { assignment.viewable_by?(other).should be_false }

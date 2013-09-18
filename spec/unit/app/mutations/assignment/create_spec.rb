@@ -8,7 +8,8 @@ describe AssignmentCreate do
       current_user: user,
       course: course,
       assignment: {
-        text: 'Make a website'
+        text: 'Make a website',
+        due:  DateTime.now + 1
       }
     })
   end
