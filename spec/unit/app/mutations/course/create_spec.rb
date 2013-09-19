@@ -6,7 +6,8 @@ describe CourseCreate do
     CourseCreate.run({
       current_user: user,
       course: {
-        name: 'Programming 101'
+        name: 'Programming 101',
+        code: 'CMPT100N'
       }
     })
   end

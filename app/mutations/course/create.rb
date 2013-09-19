@@ -3,6 +3,7 @@ class CourseCreate < Mutations::Command
     model :current_user, class: User
     hash :course do
       string :name
+      string :code
     end
   end
 

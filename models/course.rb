@@ -4,6 +4,7 @@ class Course
   include Canable::Ables
 
   field :name, type: String
+  field :code, type: String
 
   validates_presence_of :name
 
@@ -20,6 +21,10 @@ class Course
     end
 
     return arr
+  end
+
+  def pending
+    self.assignments.where(complete: false).count
   end
 
   def viewable_by?(u)
