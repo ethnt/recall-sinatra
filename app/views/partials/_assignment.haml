@@ -1,7 +1,17 @@
-%article
-  %p= assignment.text
-  %p= assignment.course.name
-  - form_tag url(:assignments, :flux), :method => "patch" do
-    = hidden_field_tag :'assignment[id]', :value => assignment.id
-    %button{:type => "submit"}
-      Complete
+%article.assignment
+  %aside
+    - form_tag url(:assignments, :flux), :method => "patch" do
+      = hidden_field_tag :'assignment[id]', :value => assignment.id
+      - if assignment.complete == true
+        %button.flux.uncomplete{:type => "submit"}
+          %i.ss-icon close
+      - else
+        %button.flux.complete{:type => "submit"}
+          %i.ss-icon check
+  %section
+    %p.text= assignment.text
+    %p.meta
+      %span.course= link_to assignment.course.name, url(:courses, :show, :id => assignment.course.id)
+      %span.due
+        %i.ss-icon clock
+        %span{:title => assignment.due.strftime('%A, %B %d, %Y')}= assignment.due_in_words

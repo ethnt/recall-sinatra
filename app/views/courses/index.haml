@@ -1,9 +1,13 @@
 %header.section
   %h2 Courses
 .section
-  %ul
-    - @courses.each do |c|
-      %li= c.name
+  - @courses.each do |course|
+    %article.course
+      %aside
+        %span= course.pending
+      %section
+        %p= link_to course.name, url(:courses, :show, :id => course.id)
+        %p= course.code
 .section
   %h3 Enroll
   - form_tag url(:courses, :create), :method => "post" do

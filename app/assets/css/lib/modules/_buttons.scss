@@ -21,4 +21,24 @@ a.btn, button, input[type="submit"] {
 			background: $light-blue;
 		}
 	}
+
+	&.flux {
+		@include border-radius(50%);
+
+		font-size: 0.5em;
+
+		i {
+			position: relative;
+			top: 0.5px;
+			right: 0.25px;
+		}
+
+		&.complete:hover {
+			background: $green;
+		}
+
+		&.uncomplete:hover {
+			background: $red;
+		}
+	}
 }

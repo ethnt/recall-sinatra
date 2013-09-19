@@ -1,0 +1,5 @@
+%header.section
+  %h2= @course.name
+%section
+  - @assignments.each do |assignment|
+    = partial 'partials/assignment', :locals => { :assignment => assignment }

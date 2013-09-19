@@ -1,0 +1,44 @@
+article.assignment {
+	$total-columns: 36;
+	$column-width: 1em;
+	$gutter-width: 0.33em;
+	$grid-padding: $gutter-width;
+
+	@include container;
+
+	aside {
+		@include span-columns(2, 36);
+	}
+
+	section {
+		@include span-columns(34 omega, 36);
+
+		margin-top: 0.1em;
+
+		.text {
+			font-size: 1.25em;
+		}
+
+		.meta {
+			font-size: 0.75em;
+			text-transform: uppercase;
+			color: $dark-grey;
+
+			a {
+				color: $dark-grey;
+			}
+
+			i {
+				font-size: 0.75em;
+			}
+
+			span.course {
+				font-weight: bold;
+			}
+		}
+	}
+
+	& + .assignment {
+		margin-top: 1em;
+	}
+}
