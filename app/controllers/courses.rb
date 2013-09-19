@@ -25,4 +25,11 @@ Recall::Web.controllers :courses do
       redirect url(:courses, :index)
     end
   end
+
+  get :show, :map => '/c/:id' do
+    @course = Course.find(params[:id])
+    @assignments = Assignment.where(user_id: current_user.id, course_id: @course.id, complete: false)
+
+    render 'courses/show'
+  end
 end

@@ -11,6 +11,8 @@ Recall::Web.controllers :assignments do
   end
 
   post :create do
+    params[:assignment][:due] = Date.parse(params[:assignment][:due])
+
     a = AssignmentCreate.run({
       current_user: current_user,
       course: Course.find(params[:assignment][:course]),
