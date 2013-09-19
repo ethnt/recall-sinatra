@@ -1,4 +1,8 @@
 Recall::Web.controllers :courses do
+  before do
+    redirect!
+  end
+
   get :index do
     @courses = Course.where(user_id: current_user.id).asc(:name)
 

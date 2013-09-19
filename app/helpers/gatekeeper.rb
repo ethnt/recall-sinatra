@@ -4,4 +4,10 @@ Recall::Web.helpers do
       User.find(session[:recall])
     end
   end
+
+  def redirect!
+    unless current_user
+      redirect url(:index)
+    end
+  end
 end

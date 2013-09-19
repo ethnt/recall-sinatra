@@ -1,4 +1,8 @@
 Recall::Web.controllers :assignments do
+  before do
+    redirect!
+  end
+
   get :index do
     @pending   = Assignment.where(user_id: current_user, complete: false).desc(:created_at)
     @completed = Assignment.where(user_id: current_user, complete: true).desc(:created_at)
