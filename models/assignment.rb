@@ -12,6 +12,22 @@ class Assignment
   belongs_to :user
   belongs_to :course
 
+  def due_in_words
+    words = distance_of_time_in_words(Date.today, self.due, only: [:days])
+
+    week = Date.today..(Date.today + 7)
+
+    if !words.include?('day')
+      return 'today'
+    elsif words == '1 day'
+      return 'tomorrow'
+    elsif week.include?(self.due)
+      self.due.strftime('%A')
+    else
+      self.due.strftime('%A, %B %d, %Y')
+    end
+  end
+
   def viewable_by?(u)
     self.course.user == u
   end

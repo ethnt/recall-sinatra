@@ -4,6 +4,7 @@ class AssignmentCreate < Mutations::Command
     model :course
     hash :assignment do
       string :text
+      model  :due, class: Date
     end
   end
 
