@@ -1,59 +1,71 @@
-form {
-	input {
-		border: none;
-		border: 1px solid $grey;
-		font: 0.9em/1.75em $sans-serif;
-		outline: none;
-		padding: 0.5em;
-		width: 40%;
+// form {
+// 	input {
+// 		border: none;
+// 		border: 1px solid $grey;
+// 		font: 0.9em/1.75em $sans-serif;
+// 		outline: none;
+// 		padding: 0.5em;
+// 		width: 40%;
 
-		&:focus {
-			border: 1px solid $darker-grey;
-		}
-	}
+// 		&:focus {
+// 			border: 1px solid $darker-grey;
+// 		}
+// 	}
 
+// 	footer {
+// 		margin-top: 1em;
+// 	}
+
+// 	&.large {
+// 		.large {
+// 			width: 98%;
+// 		}
+
+// 		footer {
+// 			p {
+// 				float: right;
+// 			}
+// 		}
+// 	}
+
+// 	.group {
+// 		// @include container;
+
+// 		// display: table-row;
+
+// 		margin-top: 0.5em;
+
+// 		label {
+// 			// @include span-columns(2, 12);
+
+// 			// display: table-cell;
+// 			float: left;
+// 			width: 10%;
+// 			text-align: right;
+// 			vertical-align: middle;
+// 			padding-top: 0.5em;
+// 			margin-right: 1em;
+// 			white-space: nowrap;
+// 			overflow: hidden;
+// 			text-overflow: ellipsis;
+// 		}
+
+// 		.control.labelless {
+// 			// @include span-columns(10 omega, 12);
+// 			margin-left: 10%;
+// 			padding-left: 0.8em;
+// 		}
+// 	}
+// }
+
+form.grid-form {
 	footer {
 		margin-top: 1em;
-	}
 
-	&.large {
-		.large {
-			width: 98%;
-		}
+		nav {
+			@include clearfix;
 
-		footer {
-			p {
-				float: right;
-			}
-		}
-	}
-
-	.group {
-		// @include container;
-
-		// display: table-row;
-
-		margin-top: 0.5em;
-
-		label {
-			// @include span-columns(2, 12);
-
-			// display: table-cell;
-			float: left;
-			width: 10%;
-			text-align: right;
-			vertical-align: middle;
-			padding-top: 0.5em;
-			margin-right: 1em;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-
-		.control.labelless {
-			// @include span-columns(10 omega, 12);
-			margin-left: 10%;
-			padding-left: 0.8em;
+			float: right;
 		}
 	}
 }

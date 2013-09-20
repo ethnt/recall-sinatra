@@ -1,9 +1,23 @@
-%header.section
-  %h2 Join
 .section
-  %form{:action => url(:users, :create), :method => "post"}
-    %p= email_field_tag :'user[email]', :placeholder => "Email"
-    %p= password_field_tag :'user[password]', :placeholder => "Password"
-    %footer
-      %p
-        %button.blue{:type => "submit"} Join
+  %form.grid-form{:action => url(:users, :create), :method => "post"}
+    -# %p= email_field_tag :'user[email]', :placeholder => "Email"
+    -# %p= password_field_tag :'user[password]', :placeholder => "Password"
+    -# %footer
+    -#   %p
+    -#     %button.blue{:type => "submit"} Join
+    %fieldset
+      %legend Join
+      %div{:'data-row-span' => '12'}
+        %div{:'data-field-span' => '12'}
+          %label{:for => "user[email]"} Email
+          = email_field_tag :'user[email]'
+      %div{:'data-row-span' => '12'}
+        %div{:'data-field-span' => '6'}
+          %label{:for => "user[password]"} Password
+          = password_field_tag :'user[password]'
+        %div{:'data-field-span' => '6'}
+          %label{:for => "user[password]"} Confirm Password
+          = password_field_tag :'user[password]'
+      %footer
+        %nav
+          %button{:type => "submit"} Join

@@ -16,4 +16,10 @@ Recall::Web.controllers :users do
       redirect url(:users, :new)
     end
   end
+
+  get :edit, map: '/settings' do
+    @user = current_user
+
+    render 'users/edit'
+  end
 end

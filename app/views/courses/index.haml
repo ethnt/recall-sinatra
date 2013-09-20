@@ -6,19 +6,19 @@
       %aside
         %span= course.pending
       %section
-        %p= link_to course.name, url(:courses, :show, :id => course.id)
-        %p= course.code
+        %p.name= link_to course.name, url(:courses, :show, :id => course.id)
+        %p.code= course.code
 .section
-  %h3 Enroll
-  - form_tag url(:courses, :create), :method => "post" do
-    .group
-      %label{:for => "course[name]"} Name
-      .control
-        = text_field_tag :"course[name]", :placeholder => "A human-readable name"
-    .group
-      %label{:for => "course[code]"} Code
-      .control
-        = text_field_tag :"course[code]", :placeholder => "The code for the course (e.g., ENG101)"
-    .group
-      .control.labelless
-        %button{:type => "submit"} Save
+  - form_tag url(:courses, :create), :class => "grid-form", :method => "post" do
+    %fieldset
+      %legend Enroll
+      %div{:'data-row-span' => '12'}
+        %div{:'data-field-span' => '6'}
+          %label{:for => "course[name]]"} Name
+          = text_field_tag :"course[name]"
+        %div{:'data-field-span' => '6'}
+          %label{:for => "course[code]]"} Code
+          = text_field_tag :"course[code]"
+      %footer
+        %nav
+          %button{:type => "submit"} Save

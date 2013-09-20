@@ -1,4 +1,4 @@
-%article.assignment
+%article.assignment{:class => assignment.complete}
   %aside
     - form_tag url(:assignments, :flux), :method => "patch" do
       = hidden_field_tag :'assignment[id]', :value => assignment.id

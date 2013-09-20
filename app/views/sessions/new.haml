@@ -1,10 +1,15 @@
-%header.section
-  %h2 Login
 .section
-  %form{:action => url(:sessions, :create), :method => "post"}
-    %p= email_field_tag :email, :placeholder => "Email"
-    %p= password_field_tag :password, :placeholder => "Password"
-    %footer
-      %p
-        %a.btn{:href => url(:users, :new)} Join
-        %button.blue{:type => "submit"} Login
+  - form_tag url(:sessions, :create), :class => "grid-form", :method => "post" do
+    %fieldset
+      %legend Login
+      %div{:'data-row-span' => '12'}
+        %div{:'data-field-span' => '12'}
+          %label{:for => "email"} Email
+          = email_field_tag :email
+      %div{:'data-row-span' => '12'}
+        %div{:'data-field-span' => '12'}
+          %label{:for => "password"} Password
+          = password_field_tag :password
+      %footer
+        %nav
+          %button{:type => "submit"} Login

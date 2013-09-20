@@ -34,7 +34,10 @@
                 %li= link_to "Courses", url(:courses, :index)
             %nav.right
               %ul
-                %li= link_to "Logout", url(:sessions, :destroy), :class => "btn"
+                %li
+                  %a{:href => url(:users, :edit)}
+                    %i.ss-icon gear
+                %li= link_to "Logout", url(:sessions, :destroy)
 
       #main{:role => "main"}
         = yield

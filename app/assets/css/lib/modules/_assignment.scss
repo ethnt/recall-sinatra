@@ -6,6 +6,14 @@ article.assignment {
 
 	@include container;
 
+	&.true {
+		color: $grey;
+
+		.meta, a {
+			color: $light-grey !important;
+		}
+	}
+
 	aside {
 		@include span-columns(2, 36);
 	}
