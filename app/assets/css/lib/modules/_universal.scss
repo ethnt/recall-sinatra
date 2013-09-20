@@ -24,6 +24,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	font-size: 1.25em;
+
+	a span {
+		color: $grey;
+		font-size: 0.9em;
+		font-weight: normal;
+	}
 }
 
 h2 {
@@ -45,4 +51,15 @@ img {
 
 p, label {
 	font-size: 0.9em;
+}
+
+#main {
+	a {
+		border-bottom: 1px solid $grey;
+
+		&:hover {
+			border-bottom: 1px solid $dark-grey;
+			color: $text;
+		}
+	}
 }

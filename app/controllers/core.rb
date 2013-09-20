@@ -9,4 +9,8 @@ Recall::Web.controllers do
       render 'core/index', layout: false
     end
   end
+
+  get :about do
+    render 'core/about'
+  end
 end

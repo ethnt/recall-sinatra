@@ -5,7 +5,7 @@ Recall::Web.controllers :assignments do
 
   get :index do
     @pending   = Assignment.where(user_id: current_user, complete: false).desc(:created_at)
-    @completed = Assignment.where(user_id: current_user, complete: true, created_at: {'$gte' => Date.today - 7, '$lt' => Date.today}).desc(:created_at)
+    @completed = Assignment.where(user_id: current_user, complete: true).desc(:created_at)
 
     render 'assignments/index'
   end

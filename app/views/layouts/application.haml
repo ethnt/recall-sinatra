@@ -26,7 +26,11 @@
       %header
         %section
           %hgroup
-            %h1= link_to "Recall", url(:index)
+            %h1
+              %a{:href => url(:index)}
+                Recall
+                %span
+                  beta
           - if current_user
             %nav.left
               %ul
@@ -44,7 +48,7 @@
 
       %footer
         .inner
-          %p= s("<a href='/'>Recall</a> fecit #{Time.now.year}.")
+          %p= s("<a href='/about'>Recall</a> fecit #{Time.now.year}.")
 
     %script{:src => "/assets/application.js"}
     :javascript

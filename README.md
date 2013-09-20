@@ -13,3 +13,4 @@ Remembering your assignments shouldn't be hard.
 - Controller tests
 - Edit/delete an assignment
 - Edit/delete a course
+- Segment.io/Google Analytics
