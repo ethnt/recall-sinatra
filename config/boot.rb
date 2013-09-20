@@ -13,6 +13,10 @@ if defined?(LogBuddy)
   })
 end
 
+if defined?(Dotenv)
+  Dotenv.load!
+end
+
 Padrino.after_load do
   Padrino.require_dependencies(Padrino.root('app/mutations/**/*.rb'))
 end
