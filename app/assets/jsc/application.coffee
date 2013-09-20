@@ -1,4 +1,5 @@
 //= require lib/vendor/jquery-1.10.2
+//= require lib/modules/analytics
 
 $(".trigger").focus ->
   div = $(".hidden").slideDown("medium")
