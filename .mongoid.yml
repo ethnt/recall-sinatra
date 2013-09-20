@@ -78,3 +78,14 @@ test:
         # low amounts for fast failures.
         max_retries: 1
         retry_interval: 0
+production:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOHQ_URL'] %>
+  options:
+    identity_map_enabled: true
+    preload_models:
+      - Assignment
+      - Course
+      - User
+    use_activesupport_time_zone: true
