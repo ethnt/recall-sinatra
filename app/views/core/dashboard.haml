@@ -5,29 +5,23 @@
       %h2 Welcome to Recall!
     %p Begin by creating a new course that you're enrolled in.
   .section
-    - form_tag url(:courses, :create), :method => "post" do
+    - form_tag url(:courses, :create), :class => "grid-form", :method => "post" do
       = hidden_field_tag :redirect, :value => "/"
-      .group
-        %label{:for => "course[name]"} Name
-        .control
-          = text_field_tag :"course[name]", :placeholder => "A human-readable name"
-      .group
-        %label{:for => "course[code]"} Code
-        .control
-          = text_field_tag :"course[code]", :placeholder => "The code for the course (e.g., ENG101)"
-      .group
-        .control.labelless
-          %button{:type => "submit"} Save
+      %fieldset
+        %legend Enroll
+        %div{:'data-row-span' => '12'}
+          %div{:'data-field-span' => '6'}
+            %label{:for => "course[name]]"} Name
+            = text_field_tag :"course[name]"
+          %div{:'data-field-span' => '6'}
+            %label{:for => "course[code]]"} Code
+            = text_field_tag :"course[code]"
+        %footer
+          %nav
+            %button{:type => "submit"} Save
+
 - else
-  -# .section
-  -#   - form_tag url(:assignments, :create), :class => "large", :method => "post" do
-  -#     = hidden_field_tag :timezone, :class => "timezone", :value => ""
-  -#     %p= text_field_tag :"assignment[text]", :class => "large", :placeholder => "What do you have to do?"
-  -#     %footer
-  -#       %p
-  -#         %input{:type => "date", :name => "assignment[due]", :value => Date.tomorrow.to_s}
-  -#         = select_tag :"assignment[course]", :options => @course_options
-  -#         %button.blue{:type => "submit"} Save
+
   .section
     - form_tag url(:assignments, :create), :class => "grid-form", :method => "post" do
       %fieldset
