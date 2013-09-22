@@ -11,8 +11,7 @@ class UserCreate < Mutations::Command
 
     Analytics.track(
       user_id: u.id.to_s,
-      event: 'User Joined',
-      timestamp: Time.now
+      event: 'User Joined'
     )
 
     return u
