@@ -10,6 +10,12 @@ class UserDestroy < Mutations::Command
     u = User.find(user['id'])
 
     if current_user.can_destroy?(u)
+      Analytics.track(
+        user_id: u.id.to_s,
+        event: 'User Left',
+        timestamp: Time.now
+      )
+
       u.destroy
 
       return nil
