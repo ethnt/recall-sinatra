@@ -13,8 +13,12 @@ if defined?(LogBuddy)
   })
 end
 
-if defined?(Dotenv)
+if defined?(Dotenv) && !heroku?
   Dotenv.load!
+end
+
+def heroku?
+  ENV['HEROKU']
 end
 
 Padrino.after_load do
