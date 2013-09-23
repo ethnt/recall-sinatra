@@ -10,6 +10,16 @@ class CourseDestroy < Mutations::Command
     c = Course.find(course['id'])
 
     if current_user.can_destroy?(c)
+      Analytics.track(
+        user_id: current_user.id.to_s,
+        event: 'Unenrolled',
+        properties: {
+          id: c.id.to_s,
+          name: c.name,
+          code: c.code
+        }
+      )
+
       c.destroy
 
       return nil

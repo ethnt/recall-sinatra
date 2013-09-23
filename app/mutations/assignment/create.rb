@@ -15,6 +15,21 @@ class AssignmentCreate < Mutations::Command
       a.course = course
       a.save
 
+      Analytics.track(
+        user_id: current_user.id.to_s,
+        event: 'New Assignment',
+        properties: {
+          id: a.id.to_s,
+          text: a.text,
+          due: a.due,
+          course: {
+            id: course.id.to_s,
+            name: course.name,
+            code: course.code
+          }
+        }
+      )
+
       return a
     else
       add_error(:current_user, 'the current user is not authorized')
