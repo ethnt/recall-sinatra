@@ -9,6 +9,10 @@ article.course {
 	aside {
 		@include span-columns(2, 36);
 
+		@media (max-width: 767px) {
+			@include span-columns(4, 36);
+		}
+
 		color: $grey;
 		font-size: 1.75em;
 
@@ -19,6 +23,10 @@ article.course {
 
 	section {
 		@include span-columns(34 omega, 36);
+
+		@media (max-width: 767px) {
+			@include span-columns(32 omega, 36);
+		}
 
 		.name {
 			font-size: 1.15em;

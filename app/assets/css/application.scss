@@ -37,11 +37,22 @@
 
 		hgroup {
 			@include span-columns(2, 12);
+
+			@media (max-width: 767px) {
+				@include span-columns(12 omega, 12)
+			}
 		}
+
 
 		nav {
 			font-size: 0.9em;
 			margin-top: 0.15em;
+
+			@media (max-width: 767px) {
+				@include container;
+
+				padding-left: 0;
+			}
 
 			&.left {
 				@include span-columns(6, 12);

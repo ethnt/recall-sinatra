@@ -16,10 +16,18 @@ article.assignment {
 
 	aside {
 		@include span-columns(2, 36);
+
+		@media (max-width: 767px) {
+			@include span-columns(4, 36);
+		}
 	}
 
 	section {
-		@include span-columns(34 omega, 36);
+ 		@include span-columns(34 omega, 36);
+
+ 		@media (max-width: 767px) {
+ 			@include span-columns(32 omega, 36);
+ 		}
 
 		margin-top: 0.1em;
 
