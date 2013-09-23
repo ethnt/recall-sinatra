@@ -6,6 +6,8 @@ gem 'rake'
 
 gem 'puma'
 
+gem 'dotenv'
+
 gem 'mongoid', '~> 3.0.0'
 
 gem 'canable'
@@ -15,6 +17,8 @@ gem 'mutations'
 gem 'bcrypt-ruby', require: nil
 
 gem 'redcarpet'
+
+gem 'analytics-ruby'
 
 gem 'haml'
 gem 'rabl'

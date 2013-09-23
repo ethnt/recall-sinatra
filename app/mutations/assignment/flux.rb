@@ -13,6 +13,27 @@ class AssignmentFlux < Mutations::Command
       a.complete = !a.complete
       a.save
 
+      if a.complete
+        event = 'Finished Assignment'
+      else
+        event = 'Unfinished Assignment'
+      end
+
+      Analytics.track(
+        user_id: current_user.id.to_s,
+        event: event,
+        properties: {
+          id: a.id.to_s,
+          text: a.text,
+          due: a.due,
+          course: {
+            id: a.course.id.to_s,
+            name: a.course.name,
+            code: a.course.code
+          }
+        }
+      )
+
       return a
     else
       add_error(:current_user, :unauthorized, 'the current user is not authorized')

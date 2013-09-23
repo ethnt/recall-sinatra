@@ -9,6 +9,11 @@ class UserCreate < Mutations::Command
   def execute
     u = User.create(self.user)
 
+    Analytics.track(
+      user_id: u.id.to_s,
+      event: 'User Joined'
+    )
+
     return u
   end
 end

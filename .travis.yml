@@ -1,3 +1,7 @@
+before_script:
+  - touch .env
+  - echo 'ANALYTICS_ID=foobar' >> .env
+  - echo 'ANALYTICS_SECRET=barfoo' >> .env
 services:
   - mongodb
 rvm:
