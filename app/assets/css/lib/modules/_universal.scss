@@ -7,6 +7,10 @@ body {
 	background: $base;
 	color: $text;
 	font: 300 100%/1.75em $sans-serif;
+
+	@media (max-width: 760px) {
+		padding: 0.5em;
+	}
 }
 
 a {
