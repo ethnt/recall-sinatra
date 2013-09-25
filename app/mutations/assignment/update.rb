@@ -1,10 +1,11 @@
 class AssignmentUpdate < Mutations::Command
   required do
     model :current_user, class: User
+    model :course
     hash :assignment do
       string :id
       string :text
-      boolean :complete
+      model  :due, class: Date
     end
   end
 
@@ -13,6 +14,11 @@ class AssignmentUpdate < Mutations::Command
 
     if current_user.can_update?(a)
       a.update_attributes(assignment)
+
+      if course != a.course
+        a.course = course
+      end
+
       a.save
 
       return a

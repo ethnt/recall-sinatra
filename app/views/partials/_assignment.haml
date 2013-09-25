@@ -9,9 +9,10 @@
         %button.flux.complete{:type => "submit"}
           %i.ss-icon check
   %section
-    %p.text= assignment.text
-    %p.meta
-      %span.course= link_to assignment.course.name, url(:courses, :show, :id => assignment.course.id)
-      %span.due
-        %i.ss-icon clock
-        %span{:title => assignment.due.strftime('%A, %B %d, %Y')}= assignment.due_in_words
+    .text= link_to assignment.text, url(:assignments, :show, :id => assignment.id)
+    .meta
+      %p
+        %span.course= link_to assignment.course.name, url(:courses, :show, :id => assignment.course.id)
+        %span.due
+          %i.ss-icon clock
+          %span{:title => assignment.due.strftime('%A, %B %d, %Y')}= assignment.due_in_words
