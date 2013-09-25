@@ -1,11 +1,6 @@
 = partial 'partials/flash', :locals => { :flash => flash }
 .section
-  %form.grid-form{:action => url(:users, :create), :method => "post"}
-    -# %p= email_field_tag :'user[email]', :placeholder => "Email"
-    -# %p= password_field_tag :'user[password]', :placeholder => "Password"
-    -# %footer
-    -#   %p
-    -#     %button.blue{:type => "submit"} Join
+  - form_tag url(:users, :create), :class => "grid-form", :method => "post" do
     %fieldset
       %legend Join
       %div{:'data-row-span' => '12'}
