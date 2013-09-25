@@ -3,6 +3,7 @@ a.btn, button, input[type="submit"] {
 
 	background: $grey;
 	border: none;
+	border-bottom: none !important;
 	color: $base;
 	cursor: pointer;
 	display: inline-block;

@@ -54,6 +54,11 @@
 				padding-left: 0;
 			}
 
+			i {
+				position: relative;
+				top: 2px;
+			}
+
 			&.left {
 				@include span-columns(6, 12);
 			}
