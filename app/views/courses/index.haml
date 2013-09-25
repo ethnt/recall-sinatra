@@ -8,6 +8,7 @@
       %section
         %p.name= link_to course.name, url(:courses, :show, :id => course.id)
         %p.code= course.code
+= partial 'partials/flash', :locals => { :flash => flash }
 .section
   - form_tag url(:courses, :create), :class => "grid-form", :method => "post" do
     %fieldset

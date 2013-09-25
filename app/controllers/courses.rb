@@ -15,14 +15,17 @@ Recall::Web.controllers :courses do
       course: params[:course]
     })
 
-    if c.success?
-      if params[:redirect]
-        redirect url(:index)
-      else
-        redirect url(:courses, :index)
-      end
+    if params[:redirect]
+      redirect_to = params[:redirect]
     else
-      redirect url(:courses, :index)
+      redirect_to = url(:courses, :index)
+    end
+
+    if c.success?
+      redirect redirect_to
+    else
+      flash[:error] = c.errors.message_list
+      redirect redirect_to
     end
   end
 

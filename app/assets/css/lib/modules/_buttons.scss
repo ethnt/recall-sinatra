@@ -12,6 +12,7 @@ a.btn, button, input[type="submit"] {
 
 	&:hover {
 		background: $dark-grey;
+		color: $base !important;
 	}
 
 	&.blue {

@@ -1,3 +1,22 @@
 %header.section
   %h2 Settings
+= partial 'partials/flash', :locals => { :flash => flash }
 .section
+  - form_tag url(:users, :update), :class => "grid-form", :method => "patch" do
+    = hidden_field_tag :'user[id]', :value => current_user.id
+    %fieldset
+      %legend Profile
+      %div{:'data-row-span' => '12'}
+        %div{:'data-field-span' => '12'}
+          %label{:for => "user[email]"} Email
+          = email_field_tag :"user[email]", :value => current_user.email
+      %div{:'data-row-span' => '12'}
+        %div{:'data-field-span' => '6'}
+          %label{:for => "user[password]"} Password
+          = password_field_tag :'user[password]'
+        %div{:'data-field-span' => '6'}
+          %label{:for => "user[password]"} Confirm Password
+          = password_field_tag :'user[password]'
+      %footer
+        %nav
+          %button{:type => "submit"} Save

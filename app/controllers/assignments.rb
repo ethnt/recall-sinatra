@@ -5,7 +5,7 @@ Recall::Web.controllers :assignments do
 
   get :index do
     @pending   = Assignment.where(user_id: current_user, complete: false).desc(:created_at)
-    @completed = Assignment.where(user_id: current_user, complete: true).desc(:created_at)
+    @completed = Assignment.where(user_id: current_user, complete: true).desc(:updated_at).limit(10)
 
     render 'assignments/index'
   end
@@ -19,11 +19,17 @@ Recall::Web.controllers :assignments do
       assignment: params[:assignment]
     })
 
+    if params[:redirect]
+      redirect_to = params[:redirect]
+    else
+      redirect_to = url(:index)
+    end
+
     if a.success?
-      redirect url(:index)
+      redirect redirect_to
     else
       flash[:error] = a.errors
-      redirect url(:index)
+      redirect redirect_to
     end
   end
 

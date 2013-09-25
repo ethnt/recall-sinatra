@@ -2,18 +2,28 @@ class UserCreate < Mutations::Command
   required do
     hash :user do
       string :email
+    end
+    hash :password do
       string :password
+      string :confirm
     end
   end
 
   def execute
-    u = User.create(self.user)
+    u = User.new(self.user)
 
-    Analytics.track(
-      user_id: u.id.to_s,
-      event: 'User Joined'
-    )
+    if password['password'] == password['confirm']
+      u.password = password['password']
+      u.save
 
-    return u
+      Analytics.track(
+        user_id: u.id.to_s,
+        event: 'User Joined'
+      )
+
+      return u
+    else
+      add_error(:password, :not_matching, 'Passwords do not match')
+    end
   end
 end

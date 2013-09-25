@@ -5,14 +5,15 @@ Recall::Web.controllers :users do
 
   post :create do
     u = UserCreate.run({
-      user: params[:user]
+      user: params[:user],
+      password: params[:password]
     })
 
     if u.success?
       session[:recall] = u.result.id
       redirect url(:index)
     else
-      flash[:error] = u.errors
+      flash[:error] = u.errors.message_list
       redirect url(:users, :new)
     end
   end
@@ -21,5 +22,22 @@ Recall::Web.controllers :users do
     @user = current_user
 
     render 'users/edit'
+  end
+
+  patch :update do
+    u = UserUpdate.run({
+      current_user: current_user,
+      user: params[:user]
+    })
+
+    if u.success?
+      flash[:notice] = 'User information saved.'
+
+      redirect url(:users, :edit)
+    else
+      flash[:error] = u.errors
+
+      redirect url(:users, :edit)
+    end
   end
 end
