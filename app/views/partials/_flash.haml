@@ -1,11 +1,7 @@
 - unless flash.empty?
-  .section
-    - if flash[:notice]
-      .flash.notice
-        %p= flash[:notice]
-    - elsif flash[:warning]
-      .flash.warning
-        %p= flash[:warning]
-    - elsif flash[:error]
-      .flast.error
-        %p= flash[:error]
+  .flash{:class => flash.keys.first.to_s}
+    %section
+      %p= flash.now.values.first
+    %nav
+      %a.hide
+        %i.ss-icon close

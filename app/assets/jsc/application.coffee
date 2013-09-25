@@ -1,11 +1,13 @@
-//= require lib/vendor/jquery-1.10.2
+//= require lib/vendor/jquery-2.0.3
 //= require lib/vendor/google-analytics
 
-$('.trigger').focus ->
-  div = $('.hidden').slideDown('medium')
-  $(document).bind 'focusin.hidden click.hidden', (e) ->
-    return  if $(e.target).closest('.hidden, .trigger').length
-    $(document).unbind '.hidden'
-    div.slideUp('medium')
+$('form .trigger').focus ->
+  $('form .hidden').slideDown('medium')
+  $('form a.hide').show()
 
-$('.hidden').hide()
+  $('form a.hide').on 'click', ->
+    $('form .hidden').slideUp('medium')
+    $('form a.hide').hide()
+
+$('.flash a.hide').on 'click', ->
+  $(@).parent().parent().hide()

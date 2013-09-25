@@ -12,10 +12,10 @@
         %div{:'data-row-span' => '12'}
           %div{:'data-field-span' => '6'}
             %label{:for => "course[name]]"} Name
-            = text_field_tag :"course[name]"
+            = text_field_tag :"course[name]", :placeholder => "Human-readable name"
           %div{:'data-field-span' => '6'}
             %label{:for => "course[code]]"} Code
-            = text_field_tag :"course[code]"
+            = text_field_tag :"course[code]", :placeholder => "Course code (e.g., CMPT100N)"
         %footer
           %nav
             %button{:type => "submit"} Save
@@ -38,6 +38,10 @@
             %label{:for => "assignment[course]"} Course
             = select_tag :"assignment[course]", :options => @course_options
         %footer
+          %aside
+            %a.hide
+              %i.ss-icon close
+              Hide
           %nav
             %button.blue{:type => "submit"} Save
 
