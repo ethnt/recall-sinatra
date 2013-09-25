@@ -4,8 +4,11 @@ describe UserCreate do
   let(:action) do
     UserCreate.run({
       user: {
-        email: 'foo@bar.com',
-        password: 'foobar'
+        email: 'foo@bar.com'
+      },
+      password: {
+        password: 'foobar',
+        confirm:  'foobar'
       }
     })
   end
