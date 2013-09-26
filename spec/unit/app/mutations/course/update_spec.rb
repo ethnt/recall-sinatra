@@ -8,7 +8,8 @@ describe CourseUpdate do
       current_user: user,
       course: {
         id:   course.id.to_s,
-        name: 'Intro to Programming'
+        name: 'Intro to Programming',
+        code: course.code
       }
     })
   end

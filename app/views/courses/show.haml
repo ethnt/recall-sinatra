@@ -5,7 +5,9 @@
     = hidden_field_tag :"redirect", :value => "/c/#{@course.id}"
     = hidden_field_tag :"assignment[course]", :value => @course.id
     %fieldset
-      %legend= @course.name
+      %legend
+        = @course.name
+        %span= @course.code
       %div{:'data-row-span' => '12'}
         %div{:'data-field-span' => '12'}
           %label{:for => "assignment[text]"} Assignment
