@@ -6,10 +6,11 @@ describe AssignmentUpdate do
   let(:action) do
     AssignmentUpdate.run({
       current_user: user,
+      course: assignment.course,
       assignment: {
         id: assignment.id.to_s,
         text: 'Write tests',
-        complete: assignment.complete
+        due: assignment.due
       }
     })
   end
