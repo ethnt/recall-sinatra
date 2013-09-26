@@ -9,6 +9,10 @@ class CourseDestroy < Mutations::Command
   def execute
     c = Course.find(course['id'])
 
+    Assignment.where(course_id: c.id).all.each do |a|
+      a.destroy
+    end
+
     if current_user.can_destroy?(c)
       Analytics.track(
         user_id: current_user.id.to_s,

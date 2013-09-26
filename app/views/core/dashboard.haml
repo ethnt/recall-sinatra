@@ -1,4 +1,3 @@
-= partial 'partials/flash', :locals => { :flash => flash }
 - if @course_options.empty?
   .section
     %header
@@ -19,9 +18,11 @@
         %footer
           %nav
             %button{:type => "submit"} Save
+  = partial 'partials/flash', :locals => { :flash => flash }
 
 - else
 
+  = partial 'partials/flash', :locals => { :flash => flash }
   .section
     - form_tag url(:assignments, :create), :class => "grid-form", :method => "post" do
       %fieldset

@@ -51,5 +51,17 @@ Recall::Web.controllers :courses do
   end
 
   delete :destroy do
+    c = CourseDestroy.run({
+      current_user: current_user,
+      course: params[:course]
+    })
+
+    if c.success?
+      flash[:notice] = 'Course has been destroyed.'
+      redirect url(:index)
+    else
+      flash[:error] = c.errors
+      redirect url(:courses, :show, id: params[:course][:id])
+    end
   end
 end

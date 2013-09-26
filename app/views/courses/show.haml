@@ -27,3 +27,8 @@
   - if !@assignments.blank?
     - @assignments.each do |assignment|
       = partial 'partials/assignment', :locals => { :assignment => assignment }
+
+.section.bordered
+  - form_tag url(:courses, :destroy), :method => "delete" do
+    = hidden_field_tag :"course[id]", :value => @course.id
+    %button.red{:type => "submit"} Delete Course
