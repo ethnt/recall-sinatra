@@ -1,3 +1,11 @@
+form.inline {
+	display: inline-block;
+	margin-top: 0 !important;
+	padding: 0;
+	position: relative;
+	bottom: 2.25em;
+}
+
 form.grid-form {
 	.hidden {
 		display: none;

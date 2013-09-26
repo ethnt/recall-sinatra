@@ -18,3 +18,6 @@
       %footer
         %nav
           %button.blue{:type => "submit"} Save
+  - form_tag url(:assignments, :destroy), :class => "inline", :method => "delete" do
+    = hidden_field_tag :'assignment[id]', :value => @assignment.id
+    %button.red{:type => "submit"} Delete

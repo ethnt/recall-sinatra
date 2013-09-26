@@ -35,4 +35,21 @@ Recall::Web.controllers :courses do
 
     render 'courses/show'
   end
+
+  patch :update do
+    c = CourseUpdate.run({
+      current_user: current_user,
+      course: params[:course]
+    })
+
+    if c.success?
+      redirect url(:courses, :show, id: c.result.id)
+    else
+      flash[:error] = c.errors
+      redirect url(:courses, :show, id: params[:course][:id])
+    end
+  end
+
+  delete :destroy do
+  end
 end

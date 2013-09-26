@@ -4,6 +4,7 @@ class CourseUpdate < Mutations::Command
     hash :course do
       string :id
       string :name
+      string :code
     end
   end
 
