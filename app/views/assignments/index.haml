@@ -1,9 +1,0 @@
-%header.section
-  %h2 Assignments
-.section
-  - @pending.each do |a|
-    = partial 'partials/assignment', :locals => { :assignment => a }
-.section
-  %h3 Completed
-  - @completed.each do |a|
-    = partial 'partials/assignment', :locals => { :assignment => a }
