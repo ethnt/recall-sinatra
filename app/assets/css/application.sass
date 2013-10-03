@@ -1,0 +1,93 @@
+// Recall
+//   file: application.sass
+
+@import lib/base
+
+body
+  // +rainbows(top, 5px, $red, $light-blue, $orange, $green, $yellow, $purple, $grey, $dark-yellow, $grey, $dark-purple, $red, $dark-red, $blue, $blue-green, $dark-orange, $green, $blue, $light-grey, $red, $grey, $green, $purple, $green, $blue, $darker-blue, $yellow, $orange, $dark-yellow, $grey, $dark-blue-green, $orange, $blue-green, $dark-red, $purple)
+  +rainbows(top, 2px, $purple, $red, $orange, $yellow, $green, $blue, $purple, $red, $orange, $yellow, $green, $blue)
+
+  background: $base
+  border-top: 1px solid $light-grey
+  color: $text
+  font: 300 15px/1.75em $sans-serif
+  margin-top: 1px
+
+a
+  color: $blue
+  text-decoration: none
+
+  &:hover
+    color: $dark-blue
+
+h1.logo
+  a
+    color: $text
+
+    &:hover
+      color: $light-text
+
+  i
+    font-size: 1.15rem
+    margin-right: 0.25em
+    position: relative
+    top: 1px
+
+  span
+    font-size: 1.5em
+    font-weight: 700
+
+
+// ------------------------
+// Header
+//
+header.universal
+  +container
+
+  border-bottom: 1px solid $light-grey
+  padding: 1.5em 0 1em
+
+  h1
+    +span-columns(3, 12)
+
+  nav
+    +span-columns(9 omega, 12)
+
+    ul
+      bottom: 2px
+      float: right
+      position: relative
+
+      li
+        display: inline-block
+
+
+// ------------------------
+// Footer
+//
+footer.universal
+  background: $light-grey
+  color: lighten($light-text, 10%)
+  font-weight: 300
+  margin-top: 8em
+
+  .inner
+    +container
+
+    padding: 2em 0
+
+  a
+    color: $light-text
+
+  nav
+    ul li
+      display: inline-block
+
+      & + li
+        margin-left: 1em
+
+  section
+    border-top: 1px solid darken($light-grey, 10%)
+    font-size: 0.85em
+    margin-top: 1rem
+    padding-top: 1rem

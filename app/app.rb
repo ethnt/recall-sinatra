@@ -13,13 +13,6 @@ module Recall
 
     enable :sessions
 
-    assets = [
-      'assets/css',
-      'assets/jsc',
-      'assets/img',
-      'assets/webfonts'
-    ]
-
-    sprockets url: 'assets', minify: (Padrino.env == :production), paths: assets
+    sprockets url: 'assets', minify: (Padrino.env == :production), paths: ['assets']
   end
 end

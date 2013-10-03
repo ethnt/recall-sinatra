@@ -6,7 +6,9 @@ Recall::Web.controllers do
 
       render 'core/dashboard'
     else
-      render 'core/index', layout: false
+      @css = ['/assets/css/lib/pages/index.css']
+
+      render 'core/index'
     end
   end
 

@@ -28,6 +28,7 @@ gem 'padrino-sprockets', git: 'https://github.com/nightsailer/padrino-sprockets.
 gem 'sprockets-sass'
 gem 'compass'
 gem 'susy'
+gem 'compass-rainbows'
 
 gem 'coffee-script'
 
@@ -38,7 +39,7 @@ group :development do
   gem 'log_buddy'
 
   gem 'foreman'
-  gem 'pry'
+  gem 'pry', '~> 0.9.12'
 end
 
 group :test do

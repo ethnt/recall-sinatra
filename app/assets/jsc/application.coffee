@@ -1,4 +1,5 @@
 //= require lib/vendor/jquery-2.0.3
+//= require lib/vendor/device
 //= require lib/vendor/google-analytics
 
 $('form .trigger').focus ->

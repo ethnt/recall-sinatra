@@ -1,0 +1,64 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "initial-scale=1", :name => "viewport"}
+
+    %meta{:content => "Remembering your assignments shouldn't be hard.", :name => "description"}
+    %meta{:content => "Recall", :name => "author"}
+
+    %title Recall
+
+    %link{:href => "/humans.txt", :rel => "author", :type => "text/plain"}
+    %link{:href => "/assets/css/application.css", :rel => "stylesheet"}
+
+    - if @css
+      - @css.each do |c|
+        %link{:href => c, :rel => "stylesheet"}
+
+    %script{:src => "//use.typekit.net/uzt6kno.js"}
+    :coffeescript
+      try
+        Typekit.load()
+      catch error
+        console.log error
+
+  %body
+    %header.universal{:role => "banner"}
+      %h1.logo
+        %a{:href => url(:index)}
+          %i.ss-icon check
+          %span Recall
+      %nav
+        %ul
+          %li
+            %a.btn{:href => url(:sessions, :new)} Login
+          %li
+            %a.btn.green{:href => url(:users, :new)} Join
+
+
+    %main{:role => "main"}
+      = yield
+
+    %footer.universal{:role => "footer"}
+      .inner
+        %nav
+          %ul
+            %li
+              %a{:href => ""} About
+            %li
+              %a{:href => ""} Documentation
+            %li
+              %a{:href => ""} Code
+            %li
+              %a{:href => ""} Support
+        %section
+          %p Recall &copy; 2013 by <a href="#">Ethan Turkeltaub</a>
+
+    %script{:src => "/assets/application.js"}
+    - if current_user
+      :coffeescript
+        analytics.identify "#{current_user.id}",
+          email: "#{current_user.email}"
