@@ -55,6 +55,10 @@
       #main{:role => "main"}
         = yield
 
+      %footer
+        .inner
+          %p= s("&copy; #{Time.now.year} Ethan Turkeltaub. Code on <a href='https://github.com/eturk/recall'>GitHub</a>.")
+
     %script{:src => "/assets/application.js"}
     - if current_user
       :coffeescript
