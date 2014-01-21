@@ -3,7 +3,7 @@ Recall::Web.controllers :assignments do
     redirect!
   end
 
-  get :index do
+  get :index, map: '/a' do
     @pending   = Assignment.where(user_id: current_user, complete: false).desc(:created_at)
     @completed = Assignment.where(user_id: current_user, complete: true).desc(:updated_at).limit(10)
 

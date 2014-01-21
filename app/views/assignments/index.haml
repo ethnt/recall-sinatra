@@ -1,9 +1,33 @@
 %header.section
   %h2 Assignments
 .section
+  - if @pending.empty?
+    %p No open assignments. Hooray!
   - @pending.each do |a|
     = partial 'partials/assignment', :locals => { :assignment => a }
+  - form_tag url(:assignments, :create), :class => "grid-form", :method => "post" do
+    %fieldset
+      %legend
+      %div{:'data-row-span' => '12'}
+        %div{:'data-field-span' => '12'}
+          %label{:for => "assignment[text]"} Assignment
+          = text_field_tag :"assignment[text]", :class => "trigger", :placeholder => "What do you have to do?"
+      %div.hidden{:'data-row-span' => '12'}
+        %div{:'data-field-span' => '6'}
+          %label{:for => "assignment[due]"} Due Date
+          %input{:type => "date", :name => "assignment[due]", :value => Date.tomorrow.to_s}
+        %div{:'data-field-span' => '6'}
+          %label{:for => "assignment[course]"} Course
+          = select_tag :"assignment[course]", :options => @course_options
+      %footer
+        %aside
+          %a.hide
+            %i.ss-icon close
+            Hide
+        %nav
+          %button.blue{:type => "submit"} Save
 .section
-  %h3 Completed
-  - @completed.each do |a|
-    = partial 'partials/assignment', :locals => { :assignment => a }
+  - unless @completed.empty?
+    %h3 Completed
+    - @completed.each do |a|
+      = partial 'partials/assignment', :locals => { :assignment => a }

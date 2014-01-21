@@ -3,7 +3,7 @@ Recall::Web.controllers :courses do
     redirect!
   end
 
-  get :index do
+  get :index, map: '/c' do
     @courses = Course.where(user_id: current_user.id).asc(:name)
 
     render 'courses/index'
@@ -58,7 +58,7 @@ Recall::Web.controllers :courses do
 
     if c.success?
       flash[:notice] = 'Course has been destroyed.'
-      redirect url(:index)
+      redirect url(:courses, :index)
     else
       flash[:error] = c.errors
       redirect url(:courses, :show, id: params[:course][:id])
