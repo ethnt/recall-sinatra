@@ -13,6 +13,15 @@ module Recall
 
     enable :sessions
 
+    set :delivery_method, smtp: {
+      address:              'email-smtp.us-east-1.amazonaws.com',
+      port:                 587,
+      user_name:            ENV['AMAZON_SES_KEY'],
+      password:             ENV['AMAZON_SES_SECRET'],
+      authentication:       :plain,
+      enable_starttls_auto: true
+    }
+
     assets = [
       'assets/css',
       'assets/jsc',

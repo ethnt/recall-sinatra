@@ -22,6 +22,7 @@ if defined?(Dotenv) && !heroku?
 end
 
 Padrino.after_load do
+  Padrino.require_dependencies(Padrino.root('app/mailers/**/*.rb'))
   Padrino.require_dependencies(Padrino.root('app/mutations/**/*.rb'))
 end
 

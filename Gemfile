@@ -16,6 +16,9 @@ gem 'mutations'
 
 gem 'bcrypt-ruby', require: nil
 
+gem 'sidekiq'
+gem 'sidetiq'
+
 gem 'redcarpet'
 
 gem 'analytics-ruby'

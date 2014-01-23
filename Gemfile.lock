@@ -27,6 +27,8 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
     canable (0.3.0)
+    celluloid (0.15.2)
+      timers (~> 1.1.0)
     chunky_png (1.2.8)
     coderay (1.1.0)
     coffee-script (2.2.0)
@@ -37,6 +39,7 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
+    connection_pool (1.2.0)
     database_cleaner (1.1.1)
     debug_inspector (0.0.2)
     diff-lcs (1.2.4)
@@ -64,6 +67,7 @@ GEM
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
     i18n (0.6.5)
+    ice_cube (0.11.1)
     json (1.8.0)
     log_buddy (0.7.0)
     mail (2.5.4)
@@ -129,6 +133,9 @@ GEM
     rainbow (1.1.4)
     rake (10.1.0)
     redcarpet (3.0.0)
+    redis (3.0.7)
+    redis-namespace (1.4.1)
+      redis (~> 3.0.4)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -147,6 +154,16 @@ GEM
     sexp_processor (4.3.0)
     shoulda-matchers (2.3.0)
       activesupport (>= 3.0.0)
+    sidekiq (2.17.3)
+      celluloid (>= 0.15.2)
+      connection_pool (>= 1.0.0)
+      json
+      redis (>= 3.0.6)
+      redis-namespace (>= 1.3.1)
+    sidetiq (0.5.0)
+      celluloid (>= 0.14.1)
+      ice_cube (~> 0.11.0)
+      sidekiq (>= 2.16.0)
     sinatra (1.4.3)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -165,6 +182,7 @@ GEM
       sass (>= 3.2.0)
     thor (0.17.0)
     tilt (1.3.7)
+    timers (1.1.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -203,5 +221,7 @@ DEPENDENCIES
   rspec
   rubocop
   shoulda-matchers
+  sidekiq
+  sidetiq
   sprockets-sass
   susy
