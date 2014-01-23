@@ -3,6 +3,7 @@ Recall::Web.controllers do
     if current_user
       @course_options = Course.as_options(current_user)
       @assignments = Assignment.where(user_id: current_user.id, complete: false).asc(:created_at)
+      @completed = Assignment.where(user_id: current_user, complete: true).desc(:updated_at).limit(10)
 
       render 'core/dashboard'
     else

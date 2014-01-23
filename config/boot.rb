@@ -7,10 +7,10 @@ require 'bundler/setup'
 Bundler.require(:default, PADRINO_ENV)
 
 if defined?(LogBuddy)
-  LogBuddy.init({
+  LogBuddy.init(
     logger:   logger,
     disabled: PADRINO_ENV == :production
-  })
+  )
 end
 
 def heroku?

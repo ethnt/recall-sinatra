@@ -10,10 +10,10 @@ Recall::Web.controllers :courses do
   end
 
   post :create do
-    c = CourseCreate.run({
+    c = CourseCreate.run(
       current_user: current_user,
       course: params[:course]
-    })
+    )
 
     if params[:redirect]
       redirect_to = params[:redirect]
@@ -29,7 +29,7 @@ Recall::Web.controllers :courses do
     end
   end
 
-  get :show, :map => '/c/:id' do
+  get :show, map: '/c/:id' do
     @course = Course.find(params[:id])
     @assignments = Assignment.where(user_id: current_user.id, course_id: @course.id, complete: false)
 
@@ -37,10 +37,10 @@ Recall::Web.controllers :courses do
   end
 
   patch :update do
-    c = CourseUpdate.run({
+    c = CourseUpdate.run(
       current_user: current_user,
       course: params[:course]
-    })
+    )
 
     if c.success?
       redirect url(:courses, :show, id: c.result.id)
@@ -51,10 +51,10 @@ Recall::Web.controllers :courses do
   end
 
   delete :destroy do
-    c = CourseDestroy.run({
+    c = CourseDestroy.run(
       current_user: current_user,
       course: params[:course]
-    })
+    )
 
     if c.success?
       flash[:notice] = 'Course has been destroyed.'

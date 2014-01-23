@@ -4,14 +4,14 @@ describe CourseUpdate do
   let(:course) { create :course }
   let(:user)   { course.user }
   let(:action) do
-    CourseUpdate.run({
+    CourseUpdate.run(
       current_user: user,
       course: {
         id:   course.id.to_s,
         name: 'Intro to Programming',
         code: course.code
       }
-    })
+    )
   end
 
   it { action.success?.should be_true }

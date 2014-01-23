@@ -4,10 +4,10 @@ Recall::Web.controllers :users do
   end
 
   post :create do
-    u = UserCreate.run({
+    u = UserCreate.run(
       user: params[:user],
       password: params[:password]
-    })
+    )
 
     if u.success?
       session[:recall] = u.result.id
@@ -25,10 +25,10 @@ Recall::Web.controllers :users do
   end
 
   patch :update do
-    u = UserUpdate.run({
+    u = UserUpdate.run(
       current_user: current_user,
       user: params[:user]
-    })
+    )
 
     if u.success?
       flash[:notice] = 'User information saved.'

@@ -4,12 +4,12 @@ describe AssignmentFlux do
   let(:assignment) { create :assignment }
   let(:user)       { assignment.course.user }
   let(:action) do
-    AssignmentFlux.run({
+    AssignmentFlux.run(
       current_user: user,
       assignment: {
         id: assignment.id.to_s
       }
-    })
+    )
   end
 
   it { action.success?.should be_true }

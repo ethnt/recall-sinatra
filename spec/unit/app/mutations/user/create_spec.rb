@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UserCreate do
   let(:action) do
-    UserCreate.run({
+    UserCreate.run(
       user: {
         email: 'foo@bar.com'
       },
@@ -10,7 +10,7 @@ describe UserCreate do
         password: 'foobar',
         confirm:  'foobar'
       }
-    })
+    )
   end
 
   it { action.success?.should be_true }

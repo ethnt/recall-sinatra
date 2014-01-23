@@ -3,13 +3,13 @@ require 'spec_helper'
 describe UserUpdate do
   let(:user) { create :user }
   let(:action) do
-    UserUpdate.run({
+    UserUpdate.run(
       current_user: user,
       user: {
         id: user.id.to_s,
         email: 'bar@foo.com'
       }
-    })
+    )
   end
 
   it { action.success?.should be_true }

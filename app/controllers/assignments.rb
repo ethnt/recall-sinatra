@@ -4,20 +4,17 @@ Recall::Web.controllers :assignments do
   end
 
   get :index, map: '/a' do
-    @pending   = Assignment.where(user_id: current_user, complete: false).desc(:created_at)
-    @completed = Assignment.where(user_id: current_user, complete: true).desc(:updated_at).limit(10)
-
-    render 'assignments/index'
+    redirect url(:index)
   end
 
   post :create do
     params[:assignment][:due] = Date.parse(params[:assignment][:due])
 
-    a = AssignmentCreate.run({
+    a = AssignmentCreate.run(
       current_user: current_user,
       course: Course.find(params[:assignment][:course]),
       assignment: params[:assignment]
-    })
+    )
 
     if params[:redirect]
       redirect_to = params[:redirect]
@@ -34,10 +31,10 @@ Recall::Web.controllers :assignments do
   end
 
   patch :flux do
-    a = AssignmentFlux.run({
+    a = AssignmentFlux.run(
       current_user: current_user,
       assignment: params[:assignment]
-    })
+    )
 
     if a.success?
       redirect url(:index)
@@ -48,7 +45,7 @@ Recall::Web.controllers :assignments do
     end
   end
 
-  get :show, :map => '/a/:id' do
+  get :show, map: '/a/:id' do
     @assignment = Assignment.find(params[:id])
 
     render 'assignments/show'
@@ -57,25 +54,25 @@ Recall::Web.controllers :assignments do
   patch :update do
     params[:assignment][:due] = Date.parse(params[:assignment][:due])
 
-    a = AssignmentUpdate.run({
+    a = AssignmentUpdate.run(
       current_user: current_user,
       course: Course.find(params[:assignment][:course]),
       assignment: params[:assignment]
-    })
+    )
 
     if a.success?
       redirect url(:index)
     else
       flash[:error] = a.errors.message_list
-      redirect url(:assignments, :show, :id => params[:assignment][:id])
+      redirect url(:assignments, :show, id: params[:assignment][:id])
     end
   end
 
   delete :destroy do
-    a = AssignmentDestroy.run({
+    a = AssignmentDestroy.run(
       current_user: current_user,
       assignment: params[:assignment]
-    })
+    )
 
     if params[:redirect]
       redirect_to = params[:redirect]

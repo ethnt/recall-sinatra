@@ -49,3 +49,7 @@
 .section
   - @assignments.each do |a|
     = partial 'partials/assignment', :locals => { :assignment => a }
+
+  - @completed.each do |a|
+    = partial 'partials/assignment', :locals => { :assignment => a }
+

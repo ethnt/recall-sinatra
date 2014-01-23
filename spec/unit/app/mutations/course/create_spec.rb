@@ -3,13 +3,13 @@ require 'spec_helper'
 describe CourseCreate do
   let(:user) { create :user }
   let(:action) do
-    CourseCreate.run({
+    CourseCreate.run(
       current_user: user,
       course: {
         name: 'Programming 101',
         code: 'CMPT100N'
       }
-    })
+    )
   end
 
   it { action.success?.should be_true }

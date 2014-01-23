@@ -4,7 +4,7 @@ describe AssignmentUpdate do
   let(:assignment) { create :assignment }
   let(:user)       { assignment.course.user }
   let(:action) do
-    AssignmentUpdate.run({
+    AssignmentUpdate.run(
       current_user: user,
       course: assignment.course,
       assignment: {
@@ -12,7 +12,7 @@ describe AssignmentUpdate do
         text: 'Write tests',
         due: assignment.due
       }
-    })
+    )
   end
 
   it { action.success?.should be_true }
