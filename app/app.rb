@@ -11,16 +11,22 @@ module Recall
       BetterErrors.application_root = PADRINO_ROOT
     end
 
-    enable :sessions
+    configure :development, :production do
+      set :delivery_method, smtp: {
+        address:              'email-smtp.us-east-1.amazonaws.com',
+        port:                 587,
+        user_name:            ENV['AMAZON_SES_KEY'],
+        password:             ENV['AMAZON_SES_SECRET'],
+        authentication:       :plain,
+        enable_starttls_auto: true
+      }
+    end
 
-    set :delivery_method, smtp: {
-      address:              'email-smtp.us-east-1.amazonaws.com',
-      port:                 587,
-      user_name:            ENV['AMAZON_SES_KEY'],
-      password:             ENV['AMAZON_SES_SECRET'],
-      authentication:       :plain,
-      enable_starttls_auto: true
-    }
+    configure :test do
+      set :delivery_method, :test
+    end
+
+    enable :sessions
 
     assets = [
       'assets/css',
