@@ -9,5 +9,5 @@ Padrino.configure_apps do
   # Analytics.init(secret: ENV['ANALYTICS_SECRET'])
 end
 
-# Mounts the core application for this project
 Padrino.mount('Recall::Web', app_file: Padrino.root('app/app.rb')).to('/')
+Padrino.mount('Recall::API', :app_file => Padrino.root('api/app.rb')).to('/api')
