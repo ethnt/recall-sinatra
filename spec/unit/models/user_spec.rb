@@ -22,6 +22,10 @@ describe User do
     it { user.password.should == 'foobar' }
   end
 
+  describe '#generate_access_token!' do
+    it { user.access_token.should_not be_nil }
+  end
+
   describe '#viewable_by?' do
     it { user.viewable_by?(user).should be_true }
     it { user.viewable_by?(other).should be_false }
