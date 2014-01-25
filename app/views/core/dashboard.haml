@@ -30,26 +30,29 @@
         %div{:'data-row-span' => '12'}
           %div{:'data-field-span' => '12'}
             %label{:for => "assignment[text]"} Assignment
-            = text_field_tag :"assignment[text]", :class => "trigger", :placeholder => "What do you have to do?"
+            = text_field_tag :"assignment[text]", :class => "text trigger", :placeholder => "What do you have to do?"
         %div.hidden{:'data-row-span' => '12'}
           %div{:'data-field-span' => '6'}
             %label{:for => "assignment[due]"} Due Date
-            %input{:type => "date", :name => "assignment[due]", :value => Date.tomorrow.to_s}
+            %input.due{:type => "date", :name => "assignment[due]", :value => Date.tomorrow.to_s}
           %div{:'data-field-span' => '6'}
             %label{:for => "assignment[course]"} Course
-            = select_tag :"assignment[course]", :options => @course_options
+            = select_tag :"assignment[course]", :class => "course", :options => @course_options
         %footer
           %aside
             %a.hide
               %i.ss-icon close
               Hide
           %nav
-            %button.blue{:type => "submit"} Save
+            / %button.blue.create{:type => "submit"} Save
+            %button.blue.create Save
 
 .section
-  - @assignments.each do |a|
-    = partial 'partials/assignment', :locals => { :assignment => a }
+  .pending
+    - @assignments.each do |a|
+      = partial 'partials/assignment', :locals => { :assignment => a }
 
-  - @completed.each do |a|
-    = partial 'partials/assignment', :locals => { :assignment => a }
+  .completed
+    - @completed.each do |a|
+      = partial 'partials/assignment', :locals => { :assignment => a }
 

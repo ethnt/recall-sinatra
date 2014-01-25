@@ -23,6 +23,8 @@ gem 'analytics-ruby'
 gem 'haml'
 gem 'rabl'
 
+gem 'gon-sinatra'
+
 gem 'padrino-sprockets', git: 'https://github.com/nightsailer/padrino-sprockets.git'
 
 gem 'sprockets-sass'

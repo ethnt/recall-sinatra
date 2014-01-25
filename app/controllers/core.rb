@@ -5,6 +5,8 @@ Recall::Web.controllers do
       @assignments = Assignment.where(user_id: current_user.id, complete: false).asc(:created_at)
       @completed = Assignment.where(user_id: current_user, complete: true).desc(:updated_at).limit(10)
 
+      gon.access_token = current_user.access_token
+
       render 'core/dashboard'
     else
       render 'core/index', layout: false

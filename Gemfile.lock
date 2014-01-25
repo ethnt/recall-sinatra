@@ -57,6 +57,8 @@ GEM
       rspec (~> 2.0)
       rspec-instafail (~> 0.2.0)
       ruby-progressbar (~> 1.0)
+    gon-sinatra (0.1.0)
+      sinatra
     haml (4.0.3)
       tilt
     hike (1.2.3)
@@ -188,6 +190,7 @@ DEPENDENCIES
   factory_girl
   foreman
   fuubar
+  gon-sinatra
   haml
   log_buddy
   mongoid (~> 3.0.0)

@@ -4,6 +4,7 @@ module Recall
     register Padrino::Mailer
     register Padrino::Helpers
     register Padrino::Sprockets
+    register Gon::Sinatra
 
     configure :development do
       use BetterErrors::Middleware

@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'securerandom'
 
 class User
   include Mongoid::Document
@@ -10,12 +11,13 @@ class User
 
   attr_accessor :password
 
-  field :email,   type: String
-  field :crypted, type: String
+  field :email,        type: String
+  field :crypted,      type: String
+  field :access_token, type: String
 
   validates_presence_of :email
 
-  before_save :encrypt_password!
+  before_save :encrypt_password!, :generate_access_token!
 
   has_many :courses
   has_many :assignments
@@ -41,5 +43,9 @@ class User
 
   def encrypt_password!
     self.crypted = Password.create(@password)
+  end
+
+  def generate_access_token!
+    self.access_token = SecureRandom.uuid
   end
 end
