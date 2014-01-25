@@ -34,9 +34,14 @@ article.assignment {
 		.text {
 			font-size: 1.25em;
 
-			a {
-				border-bottom: none !important;
+			em {
+				font-style: italic;
 			}
+
+			strong {
+				font-weight: bold;
+			}
+
 		}
 
 		.meta {

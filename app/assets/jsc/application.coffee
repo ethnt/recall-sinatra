@@ -68,10 +68,10 @@ $('button.create').on 'click', ->
           </button>
         </aside>
         <section>
-          <div class='text'><a href='#{data.assignment.id.$oid}'>#{data.assignment.text}</a></div>
+          <div class='text'><a href='#{data.assignment.id.$oid}'>#{data.assignment.render.display_html}</a></div>
           <div class='meta'>
             <p>
-              <span class='course'><a href='#{data.assignment.course.id.$oid}'>#{data.assignment.course.name}</a></span>
+              <span class='course'>#{data.assignment.course.name}</span>
               <span class='due'>
                 <i class='ss-icon'>clock</i>
                 <span title='#{due.format('dddd, MMMM D, YYYY')}'>#{due.calendar().split(' ')[0].toLowerCase()}</span>

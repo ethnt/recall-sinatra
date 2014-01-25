@@ -1,5 +1,5 @@
 object @assignment
-attributes :id, :text, :due, :complete
+attributes :id, :text, :due, :complete, :render
 
 child :course do
   attributes :id, :name, :code

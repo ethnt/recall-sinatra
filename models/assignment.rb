@@ -28,6 +28,15 @@ class Assignment
     end
   end
 
+  def render
+    Quesadilla.extract(self.text,
+      markdown_links: true,
+      markdown_emphasis: true,
+      markdown_double_emphasis: true,
+      autolinks: true
+    )
+  end
+
   def viewable_by?(u)
     self.course.user == u
   end
