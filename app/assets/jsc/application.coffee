@@ -68,7 +68,7 @@ $('button.create').on 'click', ->
           </button>
         </aside>
         <section>
-          <div class='text'><a href='#{data.assignment.id.$oid}'>#{data.assignment.render.display_html}</a></div>
+          <div class='text'>#{data.assignment.render.display_html}</div>
           <div class='meta'>
             <p>
               <span class='course'>#{data.assignment.course.name}</span>
