@@ -67,3 +67,6 @@
         analytics.identify "#{current_user.id}",
           email: "#{current_user.email}"
 
+        _rangefinder_queue = _rangefinder_queue or []
+        _rangefinder_queue.push ["track", 7]
+        document.write unescape("%3Cscript src='//rangefinderapp.com/track1.js' type='text/javascript'%3E%3C/script%3E")
