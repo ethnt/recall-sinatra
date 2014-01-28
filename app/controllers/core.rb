@@ -2,7 +2,7 @@ Recall::Web.controllers do
   get :index do
     if current_user
       @course_options = Course.as_options(current_user)
-      @assignments = Assignment.where(user_id: current_user.id, complete: false).desc(:due)
+      @assignments = Assignment.where(user_id: current_user.id, complete: false).asc(:due)
       @completed = Assignment.where(user_id: current_user, complete: true).desc(:updated_at).limit(3)
 
       gon.access_token = current_user.access_token
