@@ -11,7 +11,7 @@
         %div{:'data-row-span' => '12'}
           %div{:'data-field-span' => '6'}
             %label{:for => "course[name]]"} Name
-            = text_field_tag :"course[name]", :placeholder => "Human-readable name"
+            = text_field_tag :"course[name]", :placeholder => "Course title"
           %div{:'data-field-span' => '6'}
             %label{:for => "course[code]]"} Code
             = text_field_tag :"course[code]", :placeholder => "Course code (e.g., CMPT100N)"
@@ -44,8 +44,11 @@
               %i.ss-icon close
               Hide
           %nav
-            / %button.blue.create{:type => "submit"} Save
-            %button.blue.create Save
+            %ul
+              %li
+                %span.working Working...
+              %li
+                %button.blue.create Save
 
 .section
   .pending

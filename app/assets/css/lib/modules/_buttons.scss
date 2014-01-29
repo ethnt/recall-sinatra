@@ -17,6 +17,10 @@ a.btn, button, input[type="submit"] {
 		color: $base !important;
 	}
 
+	&[disabled="disabled"] {
+		background: $grey;
+	}
+
 	&.blue {
 		background: $blue;
 

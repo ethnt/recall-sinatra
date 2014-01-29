@@ -61,6 +61,26 @@ form.grid-form {
 			button {
 				float: right;
 			}
+
+			ul {
+				float: right;
+
+				li {
+					display: inline-block;
+
+					&:first-child {
+						span {
+							display: none;
+							position: relative;
+							bottom: 0.6em;
+						}
+					}
+
+					& + li {
+						margin-left: 1em;
+					}
+				}
+			}
 		}
 	}
 }

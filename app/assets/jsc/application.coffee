@@ -47,6 +47,10 @@ $('button.create').on 'click', ->
   event.preventDefault()
 
   form = $(@).closest 'form'
+  button = $(@)
+
+  button.html('Working...')
+  button.attr('disabled', 'disabled')
 
   $.ajax(
     method: 'post'
@@ -81,3 +85,8 @@ $('button.create').on 'click', ->
         </section>
       </article>
     ")
+
+    form.find('input.text').val('')
+
+    button.html('Save')
+    button.attr('disabled', 'false')
