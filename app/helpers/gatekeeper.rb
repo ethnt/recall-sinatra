@@ -6,7 +6,9 @@ Recall::Web.helpers do
   end
 
   def redirect!
-    unless current_user
+    if current_user
+      gon.access_token = current_user.access_token
+    else
       redirect url(:index)
     end
   end

@@ -4,7 +4,10 @@ Recall::Web.controllers :assignments do
   end
 
   get :index, map: '/a' do
-    redirect url(:index)
+    @assignments = Assignment.where(user_id: current_user.id, complete: false).asc(:due)
+    @completed = Assignment.where(user_id: current_user, complete: true).desc(:updated_at).limit(3)
+
+    render 'assignments/index'
   end
 
   post :create do

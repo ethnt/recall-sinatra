@@ -1,10 +1,6 @@
 %header.section
   %h2 Assignments
 .section
-  - if @pending.empty?
-    %p No open assignments. Hooray!
-  - @pending.each do |a|
-    = partial 'partials/assignment', :locals => { :assignment => a }
   - form_tag url(:assignments, :create), :class => "grid-form", :method => "post" do
     %fieldset
       %legend
@@ -26,6 +22,10 @@
             Hide
         %nav
           %button.blue{:type => "submit"} Save
+  - if @assignments.empty?
+    %p No open assignments. Hooray!
+  - @assignments.each do |a|
+    = partial 'partials/assignment', :locals => { :assignment => a }
 .section
   - unless @completed.empty?
     %h3 Completed
