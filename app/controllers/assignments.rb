@@ -5,7 +5,7 @@ Recall::Web.controllers :assignments do
 
   get :index, map: '/a' do
     @assignments = Assignment.where(user_id: current_user.id, complete: false).asc(:due)
-    @completed = Assignment.where(user_id: current_user, complete: true).desc(:updated_at).limit(3)
+    @completed = Assignment.where(user_id: current_user, complete: true).desc(:updated_at)
 
     render 'assignments/index'
   end
