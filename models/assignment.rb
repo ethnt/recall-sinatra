@@ -20,7 +20,11 @@ class Assignment
     if !words.include?('day')
       return 'today'
     elsif words == '1 day'
-      return 'tomorrow'
+      if self.due > Date.today
+        return 'tomorrow'
+      else
+        return 'yesterday'
+      end
     elsif week.include?(self.due)
       self.due.strftime('%A')
     else
