@@ -89,4 +89,4 @@ $('button.create').on 'click', ->
     form.find('input.text').val('')
 
     button.html('Save')
-    button.attr('disabled', 'false')
+    button.removeAttr('disabled')
