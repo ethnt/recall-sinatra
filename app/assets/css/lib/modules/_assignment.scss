@@ -41,7 +41,6 @@ article.assignment {
 			strong {
 				font-weight: bold;
 			}
-
 		}
 
 		.meta {
@@ -61,11 +60,22 @@ article.assignment {
 			span.course {
 				font-weight: bold;
 			}
+
+			span.controls {
+				display: none;
+				margin-left: 0.25em;
+			}
 		}
 	}
 
 	& + .assignment {
 		margin-top: 1em;
+	}
+
+	&:hover {
+		.meta .controls {
+			display: inline;
+		}
 	}
 }
 

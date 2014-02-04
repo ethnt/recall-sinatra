@@ -13,14 +13,19 @@ class Assignment
   belongs_to :course
 
   def due_in_words
-    words = distance_of_time_in_words(Date.today, self.due, only: [:days])
+    est = ActiveSupport::TimeZone.new('Eastern Time (US & Canada)')
 
-    week = Date.today..(Date.today + 7)
+    today = DateTime.now.in_time_zone(est)
+    today = Date.new(today.year, today.month, today.day)
+
+    words = distance_of_time_in_words(today, self.due, only: [:days])
+
+    week = today..(today + 7)
 
     if !words.include?('day')
       return 'today'
     elsif words == '1 day'
-      if self.due > Date.today
+      if self.due > today
         return 'tomorrow'
       else
         return 'yesterday'

@@ -78,7 +78,10 @@ $('button.create').on 'click', ->
               <span class='course'>#{data.assignment.course.name}</span>
               <span class='due'>
                 <i class='ss-icon'>clock</i>
-                <span title='#{due.format('dddd, MMMM D, YYYY')}'>#{due.calendar().split(' ')[0].toLowerCase()}</span>
+                <span title='#{due.format('dddd, MMMM D, YYYY')}'>#{data.assignment.due_in_words}</span>
+              </span>
+              <span class='controls'>
+                <a href='/a/#{data.assignment.id.$oid}'><i class='ss-icon'>edit</i></a>
               </span>
             </p>
           </div>
