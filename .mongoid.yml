@@ -81,7 +81,9 @@ test:
 production:
   sessions:
     default:
-      uri: <%= ENV['MONGOHQ_URL'] %>
+      database: recall_production
+      hosts:
+        - localhost:27017
   options:
     identity_map_enabled: true
     preload_models:
