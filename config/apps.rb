@@ -6,7 +6,10 @@ Padrino.configure_apps do
 
   set :session_secret, '73c11834a4ebf03dbce5bccf0f21b92c47c05ac501542310f6c7aef41dbda417'
 
-  # Analytics.init(secret: ENV['ANALYTICS_SECRET'])
+  Analytics = AnalyticsRuby
+  Analytics.init(
+    secret: ENV['ANALYTICS_SECRET']
+  )
 end
 
 Padrino.mount('Recall::Web', app_file: Padrino.root('app/app.rb')).to('/')
