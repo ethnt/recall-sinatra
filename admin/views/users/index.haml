@@ -1,0 +1,20 @@
+.row
+  %h2 Users
+  %table
+    %thead
+      %tr
+        %th ID
+        %th Email
+        %th Created At
+        %th Administrator
+        %th Courses
+        %th Assignments
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.id
+          %td= user.email
+          %td= user.created_at
+          %td= user.administrator
+          %td= user.courses.count
+          %td= user.assignments.count

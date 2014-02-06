@@ -11,9 +11,10 @@ class User
 
   attr_accessor :password
 
-  field :email,        type: String
-  field :crypted,      type: String
-  field :access_token, type: String
+  field :email,         type: String
+  field :crypted,       type: String
+  field :access_token,  type: String
+  field :administrator, type: Boolean, default: false
 
   validates_presence_of :email
 

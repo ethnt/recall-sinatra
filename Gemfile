@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'padrino', '0.11.3'
+gem 'padrino', '0.11.4'
 
 gem 'rake'
 

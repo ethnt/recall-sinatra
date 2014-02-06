@@ -14,3 +14,5 @@ end
 
 Padrino.mount('Recall::Web', app_file: Padrino.root('app/app.rb')).to('/')
 Padrino.mount('Recall::API', :app_file => Padrino.root('api/app.rb')).to('/api')
+
+Padrino.mount('Recall::Admin', :app_file => Padrino.root('admin/app.rb')).to('/admin')
