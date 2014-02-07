@@ -38,6 +38,10 @@
           %div{:'data-field-span' => '6'}
             %label{:for => "assignment[course]"} Course
             = select_tag :"assignment[course]", :class => "course", :options => @course_options
+        %div.hidden{:'data-row-span' => '12'}
+          %div{:'data-field-span' => '12'}
+            %label{:for => "assignment[notes]"} Notes
+            = text_area_tag :"assignment[notes]", :class => "notes", :placeholder => "Any additional notes"
         %footer
           %aside
             %a.hide

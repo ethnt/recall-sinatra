@@ -6,6 +6,7 @@ class Assignment
   field :text,     type: String
   field :due,      type: Date,    default: Date.tomorrow
   field :complete, type: Boolean, default: false
+  field :notes,    type: String
 
   validates_presence_of :text
 
