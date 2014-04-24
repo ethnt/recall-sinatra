@@ -14,6 +14,8 @@ module Recall
 
     enable :sessions
 
+    set :sessions, expire_after: 1.year
+
     assets = [
       'assets/css',
       'assets/jsc',
