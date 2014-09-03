@@ -11,6 +11,9 @@ gem 'turbolinks'
 gem 'devise'
 gem 'canable'
 
+# gem 'omniauth-twitter'
+# gem 'omniauth-google-oauth2'
+
 gem 'mutations'
 
 gem 'haml-rails'
