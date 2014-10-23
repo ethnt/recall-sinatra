@@ -12,15 +12,19 @@ class Course
 
   has_many :assignments, dependent: :destroy
 
-  def viewable_by?(u)
+  def creatable_by?(u)
     self.user == u || u.admin?
   end
 
+  def viewable_by?(u)
+    self.creatable_by?(u)
+  end
+
   def updatable_by?(u)
-    self.viewable_by?(u)
+    self.creatable_by?(u)
   end
 
   def destroyable_by?(u)
-    self.viewable_by?(u)
+    self.creatable_by?(u)
   end
 end

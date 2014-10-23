@@ -12,4 +12,20 @@ class Assignment
   belongs_to :course
 
   has_many :reminders
+
+  def creatable_by?(u)
+    self.course.user == u || u.admin?
+  end
+
+  def viewable_by?(u)
+    self.creatable_by?(u)
+  end
+
+  def updatable_by?(u)
+    self.creatable_by?(u)
+  end
+
+  def destroyable_by?(u)
+    self.creatable_by?(u)
+  end
 end
